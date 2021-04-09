@@ -26,3 +26,4 @@ int main()
     std::cout<<text<<" = "<<encode(text);
     return 0;
 }
+
