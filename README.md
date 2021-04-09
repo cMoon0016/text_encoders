@@ -4,7 +4,9 @@ In this repository I will put some text encoders. For now there are:
 
 # General ENCODER
 Function which have two arguments: string text and int encoder (default 1). Variable 'text' include text which we want to encode using one of the available encoder (for now there is only one, but I will adding others in the future). Second argument means which encoder function should use, for now: 
+
 1 - numeric encoder
+
 Function return encoded string
 
 # Numeric encoder
