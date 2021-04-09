@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 #include <map>
 
 std::string encodeLetter(char letter) //function can transalte one char to numeric keyboard code and return it
