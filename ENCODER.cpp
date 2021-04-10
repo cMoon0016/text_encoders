@@ -1,9 +1,9 @@
 #include <iostream>
 #include <algorithm>
 
-std::string encode(std::string text, int encoder = 1) 
+std::string encode(std::string text, int encoder = 1) //could add more encoders, for e.g. encoder of Morse code
 {
-    std::transform(text.begin(), text.end(), text.begin(), ::toupper); //transform all letters to capital ones
+    std::transform(text.begin(), text.end(), text.begin(), ::toupper);
     std::string encoded = "";
 
     switch(encoder)
@@ -18,6 +18,12 @@ std::string encode(std::string text, int encoder = 1)
         {
             for(int i=0; i<text.length(); i++)
                 encoded += encodeMorse(text[i]); //transmit each char to Morse encoder function
+            break;
+        }
+        case 3:
+        {
+            for(int i=0; i<text.length(); i++)
+                encoded += encodeBacon(text[i]); //transmit each char to Bacon code
             break;
         }
         //here could add more encoders
@@ -38,6 +44,7 @@ int main()
 
     std::cout<<text<<" = "<<encode(text)<<std::endl; //numeric encode
     std::cout<<text<<" = "<<encode(text, 2)<<std::endl; //Morse encode
+    std::cout<<text<<" = "<<encode(text, 3)<<std::endl; //Bacon encode
     return 0;
 }
 
