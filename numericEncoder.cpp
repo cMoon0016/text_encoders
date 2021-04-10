@@ -3,7 +3,7 @@
 
 std::string encodeLetter(char letter) //function can transalte one char to numeric keyboard code and return it
 {
-    if(letter < 65 || letter > 97) //for characters which aren't letters function will return space (ASCII 32)
+    if(letter < 65 || letter > 90) //for characters which aren't letters function will return space (ASCII 32)
         return " ";
 
     std::map<char, std::string> keyboard;
