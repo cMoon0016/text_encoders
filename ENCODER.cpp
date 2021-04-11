@@ -1,35 +1,40 @@
 #include <iostream>
 #include <algorithm>
 
-std::string encode(std::string text, int encoder = 1) //could add more encoders, for e.g. encoder of Morse code
+std::string encode(std::string text, int encoder = 1, int key = 3) //could add more encoders
 {
     std::transform(text.begin(), text.end(), text.begin(), ::toupper);
     std::string encoded = "";
 
-    switch(encoder)
+    for(int i=0; i<text.length(); i++)
     {
+        switch(encoder)
+        {
         case 1:
         {
-            for(int i=0; i<text.length(); i++)
-                encoded += encodeLetter(text[i]); //transmit each char to numeric encoder function
+            encoded += encodeLetter(text[i]);
             break;
         }
         case 2:
         {
-            for(int i=0; i<text.length(); i++)
-                encoded += encodeMorse(text[i]); //transmit each char to Morse encoder function
+            encoded += encodeMorse(text[i]);
             break;
         }
         case 3:
         {
-            for(int i=0; i<text.length(); i++)
-                encoded += encodeBacon(text[i]); //transmit each char to Bacon code
+            encoded += encodeBacon(text[i]);
+            break;
+        }
+        case 4:
+        {
+            encoded += encodeCaesarCipher(text[i], key);
             break;
         }
         //here could add more encoders
         default:
             return "Wrong encoder number";
 
+        }
     }
 
     return encoded;
@@ -42,9 +47,9 @@ int main()
     std::string text;
     getline(std::cin, text);
 
-    std::cout<<text<<" = "<<encode(text)<<std::endl; //numeric encode
-    std::cout<<text<<" = "<<encode(text, 2)<<std::endl; //Morse encode
-    std::cout<<text<<" = "<<encode(text, 3)<<std::endl; //Bacon encode
+    std::cout<<text<<" = "<<encode(text)<<std::endl;
+    std::cout<<text<<" = "<<encode(text, 2)<<std::endl;
+    std::cout<<text<<" = "<<encode(text, 3)<<std::endl;
+    std::cout<<text<<" = "<<encode(text, 4, 5)<<" key = 5"<<std::endl;
     return 0;
 }
-
