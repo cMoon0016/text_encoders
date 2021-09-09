@@ -1,5 +1,5 @@
-#include <iostream>
 #include <map>
+#include <string>
 
 std::string encodeLetter(char letter) //function can transalte one char to numeric keyboard code and return it
 {
@@ -34,5 +34,5 @@ std::string encodeLetter(char letter) //function can transalte one char to numer
     keyboard['Y'] = "999";
     keyboard['Z'] = "9999";
 
-    return keyboard[letter];
+    return keyboard[letter] + " ";
 }

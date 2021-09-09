@@ -1,5 +1,5 @@
-#include <iostream>
 #include <map>
+#include <string>
 
 std::string encodeBacon(char letter)
 {
